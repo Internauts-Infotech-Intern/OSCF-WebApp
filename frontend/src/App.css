@@ -1,0 +1,25 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.navbarDiv {
+  flex: 1;
+  background-color: #079cf3;
+}
+
+.content {
+  flex: 25; 
+  position: relative;
+  display: flex;
+}
+
+.main-area {
+  flex: 25;
+  padding: 10px;
+}
+
+body{
+  margin: 0;
+}
