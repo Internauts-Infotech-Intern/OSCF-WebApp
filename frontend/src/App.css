@@ -13,11 +13,13 @@
   flex: 25; 
   position: relative;
   display: flex;
+  overflow-y: auto;
 }
 
 .main-area {
   flex: 25;
   padding: 10px;
+  overflow-y: scroll;
 }
 
 body{

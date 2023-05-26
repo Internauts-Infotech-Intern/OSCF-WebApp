@@ -8,6 +8,7 @@ import Sidebar from "./components/Sidebar";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Contribution from "./contribution/Contribution";
 function App() {
   return (
     <div className="app">
@@ -15,14 +16,14 @@ function App() {
         <Navbar />
       </div>
       <div className="content">
-          <Sidebar />
+        <Sidebar />
         <div className="main-area">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/login" element={<Login />} />
-              {/* <Route path="/contact" element={<Signup />} /> */}
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/contribution" element={<Contribution />} />
+          </Routes>
         </div>
       </div>
     </div>
