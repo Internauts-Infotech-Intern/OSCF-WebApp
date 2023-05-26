@@ -9,6 +9,7 @@ function Contribution(){
       <p>
        Open Source is a term used to describe software whose original source code is freely available, can be redistributed, and also modified. Open Source embodies a spirit of collaboration, transparency, and community-oriented contributions, among other things.
       </p>
+      
   
       <h1>1. Find a project you're interested in </h1>  
       <p>Finding a project you're interested in seems like an easy task; you just find an interesting project and contribute, right?
