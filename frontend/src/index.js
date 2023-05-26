@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
 import App from "./App";
+import Contribution from "./Contribution";
 
 const root = createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,9 @@ root.render(
     <BrowserRouter>
         <div className="App">
           <App />
+        </div>
+        <div className = "Contribution">
+          <Contribution />
         </div>
     </BrowserRouter>
   </GoogleOAuthProvider>
