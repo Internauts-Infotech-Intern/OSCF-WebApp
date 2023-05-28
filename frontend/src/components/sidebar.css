@@ -1,0 +1,26 @@
+.sidebar {
+  background-color:#002a42;
+}
+
+.sidebar.open {
+  flex: 5;
+}
+
+.sidebar.closed {
+  flex: 1;
+}
+
+.toggle-button {
+  background: none;
+  border: none;
+  color: #e1cece;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navItem{
+}
+
+.nav.navItem :hover{
+  background-color: #e1cece;
+}

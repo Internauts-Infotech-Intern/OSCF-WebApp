@@ -1,0 +1,13 @@
+.MyContent {
+  display: flex;
+  flex-flow:column wrap;
+  justify-content: center;
+  margin-top: 20px;
+  word-spacing: 2px;
+
+}
+
+img {
+  width: 90%;
+  height: 400px;
+}
