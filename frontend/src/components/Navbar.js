@@ -1,8 +1,13 @@
-import React from "react";
+import React,{useContext} from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import UserContext from "../context/createcontext";
 
 const Navbar = () => {
+  const { user, setUser } = useContext(UserContext);
+  const logoutHandle=()=>{
+    setUser(null);
+  }
   return (
     <nav className=" MyNavbar navbar navbar-expand-lg">
       <div className="navbar-brand ml-lg-5">
@@ -29,10 +34,14 @@ const Navbar = () => {
               Contact Us
             </Link>
           </li>
+
           <li className="nav-item mx-2">
-            <Link to={"/login"} className="nav-link">
+            {user?<Link to={"#"} className="nav-link" onClick={logoutHandle}>
+              Logout
+            </Link>:<Link to={"/login"} className="nav-link">
               Login
             </Link>
+            }
           </li>
         </ul>
       </div>
