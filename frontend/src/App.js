@@ -11,6 +11,9 @@ import axios from "axios";
 import UserContext from "./context/createcontext"
 
 import Contribution from "./contribution/Contribution";
+import Write from "./pages/Write/Write";
+import Single from "./pages/Single/Single";
+import Blog from "./pages/Blog/blog";
 function App() {
   const [user, setUser] = useState(null);
 
@@ -42,6 +45,9 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/contribution" element={<Contribution />} />
+            <Route path="/write" element={<Write />} />
+            <Route path="/blog/:blogId" element={<Single />} />
+            <Route path="/blog" element={<Blog />} />
           </Routes>
         </div>
       </div>

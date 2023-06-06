@@ -32,7 +32,7 @@ const Sidebar = () => {
             <SupportIcon />
             <span className="fs-4 ml-3">Support</span>
           </Link>
-          <Link className="navItem nav-item py-3 text-white" to="#">
+          <Link className="navItem nav-item py-3 text-white" to="/blog">
             <LibraryBooksIcon />
             <span className="fs-4 ml-3">Blogs</span>
           </Link>

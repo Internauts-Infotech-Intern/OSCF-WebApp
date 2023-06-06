@@ -32,6 +32,7 @@ router.post("/signup", async (req, res) => {
     alert("Password and confirm password are not same");
   }
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -73,6 +74,7 @@ router.get("/login/success", (req, res) => {
       user: req.user,
     });
   } else {
+    // console.log(err);
     res.status(403).json({ error: true, message: "Not Authorized" });
   }
 });

@@ -65,10 +65,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
 import UserContext from '../../context/createcontext';
+// import dotenv from "dotenv";
+// dotenv.config();
 function Login() {
 	const googleAuth = () => {
 		window.open(
-			`${process.env.REACT_APP_API_URL}/auth/google/callback`,
+			`http://localhost:8080/auth/google/callback`,
 			"_self"
 		);
 
@@ -138,7 +140,7 @@ function Login() {
 					</form>
 					<p>or</p>
 					<button onClick={googleAuth}>
-						<img src="./images/google.png" alt="google icon" />
+						{/* <img src="./images/google.png" alt="google icon" /> */}
 						<span>Sing in with Google</span>
 					</button>
 					<p>
