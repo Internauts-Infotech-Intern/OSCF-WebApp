@@ -1,0 +1,25 @@
+.MySupport .mycard {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: auto;
+  border: none;
+  padding-bottom: 120px;
+  text-align: center;
+}
+.MySupport .card-img {
+  justify-self: start;
+  align-self: start;
+}
+.MySupport .card-info {
+  justify-self: start;
+  align-self: start;
+}
+.MySupport .sitebutton {
+  background-color: #b973ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+.MySupport .like {
+  padding: 5px;
+}

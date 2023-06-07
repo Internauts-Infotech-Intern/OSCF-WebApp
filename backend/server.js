@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
-const blogRoute=require("./routes/blog")
+const blogRoute = require("./routes/blog");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const app = express();
@@ -17,9 +17,12 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(console.log("Connected to MongoDB"))
+  .then((responce) => {
+    console.log("Connected to MongoDB , ", responce.connection.name);
+  })
   .catch((err) => console.log(err));
 const storage = multer.diskStorage({
+
   destination: (req, file, cb) => {
     cb(null, "images");
   },
@@ -28,7 +31,7 @@ const storage = multer.diskStorage({
      },
 });
 const upload = multer({ storage: storage });
-app.use("/api/auth", authRoute);
+
 
 app.use(
 	cookieSession({
@@ -43,14 +46,13 @@ app.use(passport.session());
 
 app.use(
 	cors({
-		origin: "http://localhost:3000",
-		methods: "GET,POST,PUT,DELETE",
-		
+		// origin: "http://localhost:3000"
+		// methods: "GET,POST,PUT,DELETE",
 	})
 );
 
+app.use("/api/auth", authRoute);
 app.use("/auth", authRoute);
-app.use("/blogs",blogRoute);
-
+app.use("/blogs", blogRoute);
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listenting on port ${port}...`));

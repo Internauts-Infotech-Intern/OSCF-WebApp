@@ -1,13 +1,16 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
 import UserContext from "../context/createcontext";
+import authService from "../services/auth.service";
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
-  const logoutHandle=()=>{
+  const logoutHandle = () => {
+    authService.logout();
     setUser(null);
-  }
+    
+  };
   return (
     <nav className=" MyNavbar navbar navbar-expand-lg">
       <div className="navbar-brand ml-lg-5">
@@ -16,7 +19,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <div className="form-inline ml-auto mt-2 mt-lg-0">
+        <div className="form-inline ml-auto ">
           <input
             className="form-control mr-sm-2 "
             type="search"
@@ -24,7 +27,7 @@ const Navbar = () => {
             aria-label="Search"
             size={30}
           />
-          <button className="btn btn-primary   my-2 my-sm-0" type="button">
+          <button className="btn btn-primary my-2 my-sm-0 btn-sm" type="button">
             Search
           </button>
         </div>
@@ -36,12 +39,24 @@ const Navbar = () => {
           </li>
 
           <li className="nav-item mx-2">
-            {user?<Link to={"#"} className="nav-link" onClick={logoutHandle}>
-              Logout
-            </Link>:<Link to={"/login"} className="nav-link">
-              Login
-            </Link>
-            }
+            {user ? (
+              <div className="navbar-nav ml-auto">
+                <div className="nav-item">
+                  <Link to={"/profile"} className="nav-link">
+                    {user.username}
+                  </Link>
+                </div>
+                <div className="nav-item ">
+                  <Link to={"#"} className="nav-link" onClick={logoutHandle}>
+                    Logout
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <Link to={"/login"} className="nav-link">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </div>

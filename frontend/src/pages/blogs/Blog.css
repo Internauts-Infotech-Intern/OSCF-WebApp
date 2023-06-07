@@ -1,0 +1,75 @@
+.MyBlogs header {
+  height: 3rem;
+  text-align: center;
+  padding-top: 1rem;
+  font-size: 2rem;
+  background-color: black;
+  color: white;
+}
+
+.MyBlogs .blog-cnt {
+  display: flex;
+  justify-content: left;
+  margin-top: 1rem;
+}
+
+.MyBlogs .left {
+  display: absolute;
+  align-items: center;
+  height: 60vh;
+  width: 60%;
+}
+
+.MyBlogs .img-cnt {
+  position: relative;
+  top: 5rem;
+  height: 90%;
+  width: 90%;
+  margin-left: 1rem;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 7px;
+  padding: 15px;
+}
+
+.MyBlogs .image {
+  height: 100%;
+  width: 100%;
+  border-radius: 7px;
+}
+
+.MyBlogs .right {
+  height: 80vh;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+}
+
+/* .content {
+    flex: 2;
+    padding-left: 20px;
+  } */
+
+.MyBlogs .topic {
+  color: #333;
+}
+
+.MyBlogs .tutorial,
+.review,
+.best-practice {
+  margin-top: 20px;
+}
+
+.MyBlogs footer{
+    height: 3.3rem;
+    text-align: center;
+    padding-top: 1rem;
+    background-color: black;
+    color: white;
+}
+
+
+
+.card_img_margin{
+  margin-left: auto;
+  margin-right: auto;
+}

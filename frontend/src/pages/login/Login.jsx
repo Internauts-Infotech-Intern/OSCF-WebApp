@@ -1,143 +1,199 @@
-// import axios from "axios";
-// import {  useRef } from "react";
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
-
-// export default function Login() {
-//     const userRef = useRef();
-//     const passwordRef = useRef();
-  
-//     const [error, setError] = useState(false);
-//     const handleSubmit = async (e) => {
-//       e.preventDefault();
-      
-//       try {
-//         const res = await axios.post("/auth/login", {
-//           email: userRef.current.value,
-//           password: passwordRef.current.value,
-//         });
-//         window.location.replace("/");
-//       } catch (err) {
-//         setError(true);
-//       }
-//     };
-  
-//     return (
-//       <div>
-//         <div>
-//           <div>
-//             <span><center>Login</center></span>
-//             <form onSubmit={handleSubmit}>
-//               <label>Email</label>
-//               <input
-//                 type="text"
-//                 placeholder="Enter your email..."
-//                 ref={userRef}
-//               />
-//               <label>Password</label>
-//               <input
-//                 type="password"
-//                 placeholder="Enter your password..."
-//                 ref={passwordRef}
-//               />
-//               <button type="submit" >
-//                 Login
-//               </button>
-              
-//             </form>
-//             <div>If you don't have an account?</div>
-//             <button>
-//               <Link to="/signup">
-//                 Signup
-//               </Link>
-//             </button>
-//             {error && <span style={{color:"red", marginTop:"10px"}}>Email or Password is wrong</span>}
-//           </div>
-//         </div>
-  
-//       </div>
-//     );
-//   }
-  
-import React, { Component, useContext } from 'react';
+import React, { Component, useContext, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
 import UserContext from '../../context/createcontext';
-// import dotenv from "dotenv";
-// dotenv.config();
-function Login() {
-	const googleAuth = () => {
-		window.open(
-			`http://localhost:8080/auth/google/callback`,
-			"_self"
-		);
+import AuthService from '../../services/auth.service';
+//google apis
+import { GoogleLogin } from "@react-oauth/google";
+import jwt_decode from "jwt-decode";
 
-	};
+function Login() {
+
+
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	const [massege, setMassege] = useState("");
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(false);
 
 	const { user, setUser } = useContext(UserContext);
 
-	const userRef = useRef();
-	const passwordRef = useRef();
-	const navigate=useNavigate();
-	const [error, setError] = useState(false);
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+	const navigate = useNavigate();
 
-		try {
-			console.log("Login");
-			console.log(userRef.current.value);
-			console.log(passwordRef.current.value);
-			axios.post("http://localhost:8080/api/auth/login", {
-				email: userRef.current.value,
-				password: passwordRef.current.value,
-			}).then((res)=>{
-				console.log(res);
-				
-				if(res.data.status=="1"){
-					setUser(res.data.user);
-					alert("Login Successful");
-
-					navigate("/");
-					
-				}
-			});
-			
-		} catch (err) {
-			setError(true);
+	useEffect(() => {
+		if (massege != null && massege != "") {
+			setTimeout(() => {
+				setMassege("");
+			}, 4000);
 		}
+	}, [massege]);
+
+	const responseMessage = (response) => {
+		// console.log("Login Success responce : ", response);
+		const token1 = response.credential.accessToken;
+		const refresh_token1 = response.credential.refreshToken;
+		// console.log("Login Success token1 : ", token1);
+		// console.log("Login Success r_token1 : ", refresh_token1);
+
+		setUser(response);
+
+		var token = response.credential;
+		const decode = jwt_decode(token);
+		console.log("Login Success : ", decode);
+		// console.log("Login Success : ", decode.name);
+		// console.log("Login Success : ", decode.email);
+		// console.log("Login Success : ", decode.email_verified);
+		// console.log("Login Success : ", decode.picture);
+
+		setUser(decode);
+		handleGoogleLoginCallback(1, decode);
+		/*aud: "754777254417-e177q2glmotv28lllmm7chn9p6krevpi.apps.googleusercontent.com";
+		azp: "754777254417-e177q2glmotv28lllmm7chn9p6krevpi.apps.googleusercontent.com";
+		email: "aarjupatel922003@gmail.com";
+		email_verified: true;
+		exp: 1681824150;
+		family_name: "Patel";
+		given_name: "Aarju";
+		iat: 1681820550;
+		iss: "https://accounts.google.com";
+		jti: "5664e4469b85b6c6ecc695f5c6f86962e4e07d3b";
+		name: "Aarju Patel";
+		nbf: 1681820250;
+		picture: "https://lh3.googleusercontent.com/a/AGNmyxZFTDO68K2LSEqoVbmjm8-AlE4FcRycI-YxXBNP=s96-c";
+		sub: "107986972506806710128";*/
+	};
+	const errorMessage = (error) => {
+		console.log("Login failed : ", error);
+	};
+
+	const handleGoogleLoginCallback = (flag, credential) => {
+		setLoading(true);
+
+		var data;
+		if (flag == 1) {
+			if (!credential.email_verified) {
+				setMassege(
+					"Your Email adress is not varified by google plese varify first to open account"
+				);
+				setLoading(false);
+				return;
+			}
+			data = credential;
+			data["flag"] = 1;
+		} else {
+			data = {
+				flag: 0,
+				email: email,
+				password: password
+			}
+		}
+		console.log("login.js data sent is : ",data)
+		AuthService.loginService(data)
+			.then((userDetails) => {
+				console.log(
+					"in login component after login localstorage is ",
+					AuthService.getCurrentUser()
+				);
+				setUser(userDetails);
+				alert("you login succesfull");
+				setLoading(true);
+				navigate("/");
+			})
+			.catch((error) => {
+				var resMessage;
+				console.log("in erro login component after login localstorage is ",error);
+				if (error.status == 0) {
+					resMessage =
+						"this email is not register with OSCF, kindly SignUp first";
+				} else if (error.status == 2) {
+					resMessage = "wrong password";
+				} else if (error.status == 4) {
+					resMessage = "You have to login with Google Sign-in";
+				} else if (error.status == 5) {
+					resMessage = "credential mis-match";
+				} else {
+					resMessage = "unhandled status arrive";
+				}
+				setLoading(false);
+				setMassege(resMessage);
+			});
+	}
+
+	const handleLogin = () => {
+		handleGoogleLoginCallback(0, {});
 	};
 	return (
-		<div>
-			<h1>Log in Form</h1>
-			<div>
-				<div>
-					<img src="./images/login.jpg" alt="login" />
-				</div>
-				<div>
-					<h2>Members Log in</h2>
-					{/* <input type="text" className={styles.input} placeholder="Email" />
-					<input type="text" className={styles.input} placeholder="Password" />
-					<button className={styles.btn}>Log In</button> */}
-					<form onSubmit={handleSubmit}>
-						<label>Email</label>
-						<input
-							type="email"
-							placeholder="Enter your email..."
-							ref={userRef}
-						/>
-						<label>Password</label>
-						<input
-							type="password"
-							placeholder="Enter your password..."
-							ref={passwordRef}
-						/>
-						<button type="submit" >
-							Login
-						</button>
+		<div className="container MyLoginStyle">
+			<div className='FormTag shadow mt-5'>
+				<div className="card card-container p-5">
+					<form >
+						<div className="form-group text-lg-center text-success">
+							Login Into OSCF
+						</div>
+						<div className="form-group">
+							<label htmlFor="email">Email</label>
+							<input
+								type="text"
+								className="form-control"
+								name="email"
+								value={email}
+								onChange={(e) => { setEmail(e.target.value) }}
+							/>
+						</div>
+
+						<div className="form-group">
+							<label htmlFor="password">Password</label>
+							<input
+								type="password"
+								className="form-control"
+								name="password"
+								value={password}
+								onChange={(e) => { setPassword(e.target.value) }}
+							/>
+						</div>
+
+						<div className="form-group">
+							<button
+								type='button'
+								className="btn btn-primary btn-block"
+								disabled={loading}
+								onClick={() => {
+									handleLogin();
+								}}
+							>
+								Login
+							</button>
+						</div>
+
+						{massege && (
+							<div className="form-group">
+								<div className="alert alert-danger" role="alert">
+									{massege}
+								</div>
+							</div>
+						)}
+						<div className='form-group text-center' htmlFor="loginWithGoogle">Or</div>
+						<div className='form-group text-center' name="loginWithGoogle">
+							<GoogleLogin
+								onSuccess={responseMessage}
+								onError={errorMessage}
+								responseType="code"
+								scope="openid profile email"
+								buttonText="Sign in with Google"
+								cookiePolicy={"single_host_origin"}
+								uxMode={"popup"}
+							/>
+						</div>
+						<div className="form-group text-center  mt-5">
+							if you not register? <Link to="/signup">Sing Up</Link>
+						</div>
 
 					</form>
+<<<<<<< HEAD
+
+=======
 					<p>or</p>
 					<button onClick={googleAuth}>
 						{/* <img src="./images/google.png" alt="google icon" /> */}
@@ -146,8 +202,10 @@ function Login() {
 					<p>
 						New Here ? <Link to="/signup">Sing Up</Link>
 					</p>
+>>>>>>> 3044c5979da7bd0bd53423b993622ab4d9915100
 				</div>
 			</div>
+
 		</div>
 	);
 }
