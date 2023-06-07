@@ -1,0 +1,202 @@
+import React from "react";
+
+const Resources = () => {
+    return(
+        <header>
+            <h1>Top Open Source Technologies for 2023 </h1>
+            <p>Today is open-source technologies produce cutting-edge software for free, lowering IT costs for businesses. Here is a list of some of the most innovative and top open source technologies to master for software development, cloud computing, devops, machine learning, and many more applications.</p>
+
+            <h1>List of open source tools and technologies</h1>
+
+            <h2>1. Mozilla Firefox</h2>
+            <p>Mozilla Firefox is a free and open-source internet browser that offers numerous plugins which can be accessed with a single mouse click. Available for Android, iOS, Linux, and Windows, Mozilla is free to use, modify and redistribute. Mozilla was born about 20 years ago out of the open-source software movement, and over the years, it reshaped the technology industry and the way social networks and operating systems operate. Today, open-source is mainstream, and it powers tech giants like Google, Facebook, and even Microsoft.</p>
+
+            <p>Documentation for Mozilla Firefox &nbsp;
+            <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox">click here for documentation</a></p>
+
+            <p>Tutorial for Mozilla Firefox &nbsp;
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">click here for tutorial</a></p>
+
+            <p>YouTube video for how to use Mozilla Firefox &nbsp;
+            <a href="https://youtu.be/xeFhzM8lepA">click here for video</a></p>
+
+            <p>Other resources links</p>
+            <a href="https://www.javatpoint.com/mozilla-firefox">javatpoint</a><br></br>
+            <a href="https://support.mozilla.org/en-US/products/firefox/get-started">support mozilla</a><br></br>
+            <a href="https://edu.gcfglobal.org/en/firefox/">gcfglobal</a>
+
+            <h2>2. LibreOffice</h2>
+            <p>LibreOffice is a free and open-source alternative to Microsoft Office. It is a complete office suite like MS Office, with which you can offer presentations, documents, spreadsheets, and databases. LibreOffice is used by millions of people all over the world. The clean interface and feature-rich tools of this open-source software allow users to use their creativity and enhance productivity.</p>
+
+            <p>Documentation for LibreOffice &nbsp;
+            <a href="https://documentation.libreoffice.org/en/english-documentation/">click here for documentation</a></p>
+
+            <p>Tutorial for LibreOffice &nbsp;
+            <a href="https://www.libreofficehelp.com/libreoffice-writer-tutorial/">click here for tutorial</a></p>
+
+            <p>YouTube video for LibreOffice writer &nbsp;
+            <a href="https://youtu.be/JIBWOjeiptA">click here for video</a></p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.tutorialspoint.com/ubuntu/ubuntu_libreoffice.htm">tutorialspoint</a><br></br>
+            <a href="https://www.javatpoint.com/what-is-libreoffice">javatpoint</a>
+
+            <h2>3. GIMP</h2>
+            <p>The photo editing tool GIMP is one of the most popular and best maintained open-source software available. It offers image editing, filters, effects, and flexibility features like some of the expensive image editing tools, yet it is completely free. With GIMP, you can use layers, filters, automatic photo enhancement features, and create new graphic design elements easily. Available across different operating systems, including Windows, Mac, and Linux.</p>
+
+            <p>Documentation for GIMP &nbsp;
+            <a href="https://www.gimp.org/docs/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for GIMP &nbsp;
+                <a href="https://www.gimp.org/tutorials/">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for how to use GIMP for beginners &nbsp;
+                <a href="https://youtu.be/Q8C0LJPpr64">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.javatpoint.com/gimp">javatpoint</a><br></br>
+            <a href="https://www.mygreatlearning.com/gimp/tutorials">mygreatlearning</a><br></br>
+            <a href="https://daviesmediadesign.com/20-gimp-tutorials-for-beginners-in-2020/">daviesmediadesign</a>
+
+            <h2>4. VLC Media Player</h2>
+            <p>The VLC multimedia player is a free open source software used for video, audio, and media files. Most users use VLC to play discs, webcams, streams, and devices. VLC media player allows optimizing multimedia files for specific hardware configuration and offers numerous extensions for users to create customized designs. On top of it, the software runs on different platforms like Android, Mac OS X, Linux, Windows, iOS.</p>
+
+            <p>Documentation for VLC media player &nbsp;
+                <a href="https://wiki.videolan.org/Documentation:Documentation/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for VLC media player &nbsp;
+                <a href="https://www.vlchelp.com/tutorials/amp/#amp_tf=From%20%251%24s&aoh=16855383505871&referrer=https%3A%2F%2Fwww.google.com">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for how to use VLC media player &nbsp;
+                <a href="https://youtu.be/2Rqg3pqiizE">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.javatpoint.com/vlc-full-form">javatpoint</a><br></br>
+            <a href="https://www.unixmen.com/22-things-you-can-do-with-vlc/">unixmen</a><br></br>
+            <a href="https://www.makeuseof.com/tag/7-top-secret-features-free-vlc-media-player-si/">makeuseof</a>
+
+            <h2>5. Shotcut</h2>
+            <p>This free, open-source video editing software offers advanced editing features like premium editors. Preferred for its ability to edit every format of audio, video, or photo media, Shotcut also offers HDMI preview and capture, a plethora of codecs, and non-destructive audio and video editing. This allows users to compile effects without any loss in video quality.</p>
+
+            <p>Documentation for Shotcut &nbsp;
+                <a href="https://shotcut.org/howtos/getting-started/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial videos list for Shotcut &nbsp;
+                <a href="https://shotcut.org/tutorials/">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for Shotcut beginners &nbsp;
+                <a href="https://youtu.be/ehysOpY-lj0">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.wdbqschools.org/ShotcutTutorials.aspx">wdbqschools</a><br></br>
+            <a href="https://democreator.wondershare.com/video-editor/shotcut-tutorial.html">democreator wondershare</a>
+
+            <h2>6. Brave</h2>
+            <p>The open-source Brave web browser is designed to keep browsing activity private by automatically disabling website trackers and blocking ads. Brave offers a faster and more secure browsing experience than with Google Chrome, plus users can access most Google Chrome extensions.</p>
+
+            <p>Documentation for Brave &nbsp;
+                <a href="https://getbrave.io/brave-documentation/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for Brave &nbsp;
+                <a href="https://support.brave.com/hc/en-us/articles/360035410812-Quickstart-guide-New-to-Brave-Start-here-">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for how to use Brave &nbsp;
+                <a href="https://youtu.be/YQ0UvBgrQ2k">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.udemy.com/course/learn-brave/">udemy</a><br></br>
+            <a href="https://www.pinterest.com/pin/how-to-use-brave-browser-youtube-cybersecurity-whitearmourconsulting-infosec-infosecurity-browser-brave-security--781937554032375351/">pinterest</a>
+
+            <h2>7. Linux</h2>
+            <p>Linux is the most in-demand open-source operating system available in the market. Most commonly used on desktops and Android devices, Linux comes absolutely free and is extremely customizable. The reasons for the immense popularity of Linux are its user-friendliness, strong security features, and excellent community support.</p>
+
+            <p>Documentation for Linux &nbsp;
+                <a href="https://docs.kernel.org/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for Linux &nbsp;
+                <a href="https://www.javatpoint.com/linux-tutorial">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for Linux &nbsp;
+                <a href="https://www.youtube.com/live/Wgi-OfbP2Gw?feature=share">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.tutorialspoint.com/unix/index.htm">tutorialspoint</a><br></br>
+            <a href="https://ubuntu.com/tutorials/command-line-for-beginners#1-overview">ubuntu</a>
+
+            <h2>8. Python</h2>
+            <p>One of the most popular programming and scripting languages used by software developers, Python, is an open-source software that is free to use and distribute. It is powerful and fast, easy to learn and use, and runs everywhere, which is why developers choose Python as one of the top open-source technologies available.</p>
+
+            <p>Documentation for Python &nbsp;
+                <a href="https://www.python.org/doc/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for Python &nbsp;
+                <a href="https://www.w3schools.com/python/">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for Python beginners &nbsp;
+                <a href="https://youtu.be/kqtD5dpn9C8">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.javatpoint.com/python-tutorial">javatpoint</a><br></br>
+            <a href="https://www.tutorialspoint.com/python/index.htm">tutorialspoint</a><br></br>
+            <a href="https://www.geeksforgeeks.org/python-programming-language/learn-python-tutorial/">geeksforgeeks</a>
+
+            <h2>9. PHP</h2>
+            <p>PHP is an open-source scripting language used for creating dynamic and interactive web pages and various digital platforms. PHP can be embedded into HTML. What sets PHP from other languages is that it is extremely simple for a beginner to learn but offers many advanced features for professional developers. Some of the most powerful websites like Slack and Spotify have been powered by PHP.</p>
+
+            <p>Documentation for PHP &nbsp;
+                <a href="https://www.php.net/docs.php">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for PHP &nbsp;
+                <a href="https://www.w3schools.com/php/">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for PHP beginners &nbsp;
+                <a href="https://www.youtube.com/live/6EukZDFE_Zg?feature=share">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.javatpoint.com/php-tutorial">javatpoint</a><br></br>
+            <a href="https://www.geeksforgeeks.org/php-tutorials/">geeksforgeeks</a><br></br>
+            <a href="https://www.tutorialspoint.com/php/index.htm">tutorialspoint</a>
+
+            <h2>10. GNU Compiler Collection</h2>
+            <p>The GNU Compiler Collection is a set of compilation and development tools used for software development in C, C++, Ada, Fortran, and other programming languages. This free software provides regular, high-quality releases which work well with native and cross targets. The sources of the GNU Compiler collection are available for free via Git and weekly snapshots. The collection is available on Linux, Windows, and other operating systems.</p>
+
+            <p>Documentation for GNU compiler collection &nbsp;
+                <a href="https://gcc.gnu.org/onlinedocs/">click here for documentation</a>
+            </p>
+
+            <p>Tutorial for GNU compiler collection &nbsp;
+                <a href="https://gcc.gnu.org/onlinedocs/gcc/">click here for tutorial</a>
+            </p>
+
+            <p>YouTube video for GNU compiler collection &nbsp;
+                <a href="https://youtu.be/hCLIDph7-mU">click here for video</a>
+            </p>
+
+            <p>Other tutorials links</p>
+            <a href="https://www.geeksforgeeks.org/gnu-compiler-collection/amp/#amp_tf=From%20%251%24s&aoh=16855511415827&referrer=https%3A%2F%2Fwww.google.com">geeksforgeeks</a><br></br>
+            <a href="https://www.javatpoint.com/gcc-linux">javatpoint</a>
+        </header>
+    );
+}
+export default Resources;
