@@ -18,9 +18,19 @@
   cursor: pointer;
 }
 
-.navItem{
-}
 
 .nav.navItem :hover{
   background-color: #e1cece;
+}
+
+.MyNav Link .open{
+  display: inline-flex;
+}
+
+.MyNav Link .closed{
+  display:none;
+}
+
+.sidebarcollapsed{
+display: none;
 }
