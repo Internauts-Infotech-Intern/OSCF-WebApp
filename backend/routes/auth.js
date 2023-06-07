@@ -55,6 +55,7 @@ router.post("/signup", async (req, res) => {
   } catch (err) {
     console.log("/signup error is : ", err);
     res.send({ status: 5 });
+
   }
 });
 
@@ -109,6 +110,7 @@ router.get("/login/success", (req, res) => {
       user: req.user,
     });
   } else {
+    // console.log(err);
     res.status(403).json({ error: true, message: "Not Authorized" });
   }
 });

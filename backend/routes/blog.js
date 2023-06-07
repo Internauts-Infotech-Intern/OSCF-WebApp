@@ -3,6 +3,7 @@ const multer = require("multer");
 const Blog = require("../models/Blog");
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
+
 //Get All Post
 // router.get("/blog", async (req, res) => {
 //     try {
@@ -11,6 +12,7 @@ const upload = multer({ storage: storage });
 //         blog = await Blog.find();
 
 //         console.log("BLog retrival finished",blog);
+
 
 //         res.send(blog);
 //     } catch (err) {
