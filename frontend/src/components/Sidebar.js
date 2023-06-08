@@ -13,6 +13,7 @@ import DehazeIcon from "@mui/icons-material/Dehaze";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import SourceIcon from "@mui/icons-material/Source";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -24,7 +25,7 @@ const Sidebar = () => {
       setNavItemClassName("fs-4 ml-3 sidebarcollapsed");
     } else {
       console.log("enter in else cond.");
-      setNavItemClassName("fs-4 ml-3 ");
+      setNavItemClassName("fs-4 ml-3");
     }
   };
 
@@ -33,14 +34,20 @@ const Sidebar = () => {
       <div className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
         <ul className="nav MyNav nav-pills flex-column mb-auto">
           <Link
-            className="navItem nav-item py-3 text-white"
+            className="navItem nav-item py-3 text-white vcenter-item"
             onClick={toggleSidebar}
           >
             <DehazeIcon />
-            <span className={navItemClassName}>OSCF</span>
+            <span className={navItemClassName}>
+              <h2>OSCF</h2>
+            </span>
+          </Link>
+          <Link className="navItem  nav-item py-3 text-white" to="/">
+            <HomeIcon />
+            <span className={navItemClassName}>Home</span>
           </Link>
           <Link className="navItem  nav-item py-3 text-white" to="/resorces">
-            <HomeIcon />
+            <SourceIcon />
             <span className={navItemClassName}>Resources</span>
           </Link>
           <Link className="navItem nav-item py-3 text-white" to="/contribution">

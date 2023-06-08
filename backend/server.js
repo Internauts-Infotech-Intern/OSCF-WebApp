@@ -54,7 +54,5 @@ app.use(
 app.use("/api/auth", authRoute);
 app.use("/auth", authRoute);
 app.use("/blogs", blogRoute);
-
-
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listenting on port ${port}...`));

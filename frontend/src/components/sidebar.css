@@ -34,3 +34,13 @@
 .sidebarcollapsed{
 display: none;
 }
+
+.myTogleElement{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.vcenter-item{
+        display: flex;
+        align-items: center;
+    }

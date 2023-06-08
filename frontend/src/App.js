@@ -8,9 +8,7 @@ import Sidebar from "./components/Sidebar";
 import Profile from "./pages/login/Profile";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import axios from "axios";
 import UserContext from "./context/createcontext";
-
 import Contribution from "./contribution/Contribution";
 import authService from "./services/auth.service";
 import Resources from "./pages/home/Resources";
@@ -19,7 +17,7 @@ import Write from "./pages/blogs/Write";
 import Single from "./pages/blogs/Single";
 import Support from "./pages/support/Support";
 import Overview from "./pages/home/Overview";
-
+import Event from "./pages/event/Events";
 // import dotenv from "dotenv";
 // dotenv.config();
 
@@ -69,10 +67,10 @@ function App() {
               <Route path="/resorces" element={<Resources />} />
               <Route path="/blogs" element={<Blog />} />
               <Route path="/support" element={<Support />} />
-              <Route path="/events" element={<></>} />
               <Route path="/write" element={admin ? <Write /> : <></>} />
               <Route path="/blog/:blogId" element={<Single />} />
               <Route path="/blog" element={<Blog />} />
+              <Route path="/events" element={<Event />} />
             </Routes>
           </div>
         </div>
