@@ -49,6 +49,7 @@ function App() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <UserContext.Provider value={{ user, setUser, admin }}>
       <div className="app">
         <div className="navbarDiv">
