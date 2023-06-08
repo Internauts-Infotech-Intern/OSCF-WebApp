@@ -35,13 +35,11 @@ router.post("/signup", async (req, res) => {
       phone: credential.phone,
       picture: credential.picture,
     });
-
+    const p = generatePassword(8);
     if (credential.flag == 0) {
       newUser["phoneVarified"] = false;
       newUser["emailVarified"] = false;
     } else if (credential.flag == 1) {
-
-      const p = generatePassword(8);
       newUser.password = p;
       newUser["phoneVarified"] = false;
       newUser["emailVarified"] = true;
@@ -49,9 +47,23 @@ router.post("/signup", async (req, res) => {
 
     const user = await newUser.save();
     if (user) {
-      console.log("/signup ")
+      console.log("/signup ");
       res.send({ status: 1 });
     }
+
+    const subject = "welcome to OSCF community";
+    const body = `<div class="contailner"> hello ${credential.email},
+        you have successfully register into OSCF, your password is : ${p},
+        <br><br>
+        if you not aware of this email, kindly ignore it.
+      </div>`;
+    sendMail(credential.email, subject, body)
+      .then((resolve) => {
+        console.log("/signup sendMail || resolve");
+      })
+      .catch((reject) => {
+        console.log("/signup  sendMail || reject : ", reject);
+      });
   } catch (err) {
     console.log("/signup error is : ", err);
     res.send({ status: 5 });
@@ -139,7 +151,6 @@ router.post("/emailvarification/generate", async (req, res) => {
   const email = req.body.email;
   const otp = generateOTP();
   console.log("/emailvarification/generate || opt", otp);
-
 
   const subject = "email varification";
   const body = `<div class="contailner"> hello ${email},
