@@ -11,9 +11,7 @@ const root = createRoot(document.getElementById("root"));
 root.render(
   <GoogleOAuthProvider clientId="754777254417-e177q2glmotv28lllmm7chn9p6krevpi.apps.googleusercontent.com">
     <BrowserRouter>
-        <div className="App">
-          <App />
-        </div>
+      <App />
     </BrowserRouter>
   </GoogleOAuthProvider>
 );

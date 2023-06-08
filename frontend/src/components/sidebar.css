@@ -1,9 +1,6 @@
-
-
 .sidebar {
   background-color:#002a42;
 }
-
 
 .sidebar.open {
   flex: 5;
@@ -20,3 +17,30 @@
   font-size: 20px;
   cursor: pointer;
 }
+
+
+.nav.navItem :hover{
+  background-color: #e1cece;
+}
+
+.MyNav Link .open{
+  display: inline-flex;
+}
+
+.MyNav Link .closed{
+  display:none;
+}
+
+.sidebarcollapsed{
+display: none;
+}
+
+.myTogleElement{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.vcenter-item{
+        display: flex;
+        align-items: center;
+    }

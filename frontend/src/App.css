@@ -10,16 +10,34 @@
 }
 
 .content {
-  flex: 25; 
+  flex: 25;
   position: relative;
   display: flex;
+  overflow-y: auto;
 }
 
 .main-area {
   flex: 25;
   padding: 10px;
+  overflow-y: scroll;
 }
 
-body{
+body {
   margin: 0;
+}
+
+.MyLoginStyle {
+  position: relative;
+}
+.FormTag {
+  position: absolute;
+  min-width: 30vw;
+  max-width: 30vw;
+  top: 50%;
+  left: 30%;
+  /* transform: translate(-50%, -50%); */
+}
+
+.form-group iframe{
+  margin: auto;
 }

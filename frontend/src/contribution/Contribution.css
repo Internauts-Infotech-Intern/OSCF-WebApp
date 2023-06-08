@@ -1,13 +1,13 @@
-.content{
-    display: flex;
-    flex-flow:column wrap;
-    justify-content: center;
-    padding-left: 180px;
-    margin-top: 120px;
-    word-spacing: 2px;
-  }
-  
-  img{
-    width: 90%;
-    height: 400px;
-  }
+.MyContent {
+  display: flex;
+  flex-flow:column wrap;
+  justify-content: center;
+  margin-top: 20px;
+  word-spacing: 2px;
+
+}
+
+.MyContent img {
+  width: 90%;
+  height: 400px;
+}
