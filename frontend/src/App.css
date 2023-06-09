@@ -1,27 +1,44 @@
-.app {
+.root {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
 }
 
-.navbarDiv {
-  flex: 1;
+/* .navbarDiv {
+  flex: 4;
   background-color: #079cf3;
-}
+  position: relative; 
+} */
 
 .content {
-  flex: 25; 
-  position: relative;
-  display: flex;
+  flex: 25;
+  display:flex;
+  flex-direction: column;
   overflow-y: auto;
 }
 
 .main-area {
-  flex: 25;
+  /* flex: 25;
   padding: 10px;
-  overflow-y: scroll;
+  overflow-y: scroll; */
 }
 
-body{
+body {
   margin: 0;
+}
+
+.MyLoginStyle {
+  position: relative;
+}
+.FormTag {
+  position: absolute;
+  min-width: 30vw;
+  max-width: 30vw;
+  top: 50%;
+  left: 30%;
+  /* transform: translate(-50%, -50%); */
+}
+
+.form-group iframe {
+  margin: auto;
 }

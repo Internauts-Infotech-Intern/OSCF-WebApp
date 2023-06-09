@@ -1,6 +1,7 @@
 .MyNavbar {
   display: flex;
   background-color: #002a42;
+  max-height: 3rem;
 }
 /* .navbar {
   background-color: #002a42;

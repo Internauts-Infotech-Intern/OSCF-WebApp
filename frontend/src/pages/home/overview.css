@@ -1,0 +1,13 @@
+.MyOverview {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  word-spacing: 2px;
+}
+
+.MyOverview img {
+  width: 90%;
+  height: 400px;
+}

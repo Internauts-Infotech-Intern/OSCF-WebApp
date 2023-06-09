@@ -1,5 +1,7 @@
 .sidebar {
-  background-color:#002a42;
+  background-color: #002a42;
+  flex: 4;
+  height: 100vh;
 }
 
 .sidebar.open {
@@ -18,9 +20,28 @@
   cursor: pointer;
 }
 
-.navItem{
+.nav.navItem :hover {
+  background-color: #e1cece;
 }
 
-.nav.navItem :hover{
-  background-color: #e1cece;
+.MyNav Link .open {
+  display: inline-flex;
+}
+
+.MyNav Link .closed {
+  display: none;
+}
+
+.sidebarcollapsed {
+  display: none;
+}
+
+.myTogleElement {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.vcenter-item {
+  display: flex;
+  align-items: center;
 }
