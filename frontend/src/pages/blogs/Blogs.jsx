@@ -9,17 +9,17 @@ export default function Blog() {
     const [photo, setPhoto] = useState("");
     const [rating, setRating] = useState("");
 
-    useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const res = await axios.get("http://localhost:8080/blogs/blog");
-                console.log(res.data);
-                setBlog(res.data);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    const fetchBlogs = async () => {
+        try {
+            const res = await axios.get("http://localhost:8080/blogs/blog");
+            console.log(res.data);
+            setBlog(res.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
+    useEffect(() => {
         fetchBlogs();
     }, []);
 
@@ -62,32 +62,6 @@ export default function Blog() {
             <div className="row row-cols-1  row-cols-md-3 mt-0">
                 {list}
             </div>
-
-
-            {/* {blog.map((p) => (
-                <div key={p._id}>
-                    {p.photo && (
-                        <img
-                            src={p.photo}
-                            alt="Blog Image"
-                            style={{ maxWidth: "20%", height: "20%" }}
-                        />
-                    )}
-                    <Link to={`/blog/${p._id}`}>
-                        {p.title}
-                    </Link>
-                    <hr />
-                    {rating !== null ? (
-                        <>
-                            <button onClick={handleLike}>Like</button>
-                            <span>{rating} Likes</span>
-                        </>
-                    ) : (
-                        <div>Loading...</div>
-                    )}
-                </div>
-            ))} */}
-
 
             {admin ? <Link to={"/write"}><button>write</button></Link>
                 : <></>}

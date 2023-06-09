@@ -1,41 +1,95 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const Resources = () => {
-    return(
+
+    const [resources, setResources] = useState([]);
+    const [rating, setRating] = useState("");
+
+    const fetchResource = async () => {
+        try {
+            const res = await axios.get("http://localhost:8080/resources/resource");
+            console.log(res.data);
+            setResources(res.data);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    useEffect(() => {
+        fetchResource();
+    }, []);
+
+
+
+    let list = resources.map((obj) => {
+        return <div className="col" key={obj._id} >
+            <div className="card  text-center mb-5 ">
+                <img src={obj.photo} className="bd-placeholder-img card_img_margin mt-3 " width="200" height="200" />
+                <div className="card-body">
+                    <Link to={`/blog/${obj._id}`} className="card-text text-dark text-sm">
+                        {obj.title}</Link>
+                </div>
+                {rating !== null ? (
+                    <>
+                        <div className="text-danger">{obj.rating} Likes</div>
+                    </>
+                ) : (
+                    <div>Loading...</div>
+                )}
+            </div>
+        </div>
+    })
+
+    return (<>
+        <div>
+            {list}
+        </div>
         <header>
+
             <h1>Top Open Source Technologies for 2023 </h1>
             <p>Today is open-source technologies produce cutting-edge software for free, lowering IT costs for businesses. Here is a list of some of the most innovative and top open source technologies to master for software development, cloud computing, devops, machine learning, and many more applications.</p>
 
             <h1>List of open source tools and technologies</h1>
 
+            {/* titel */}
             <h2>1. Mozilla Firefox</h2>
+            {/* dis */}
             <p>Mozilla Firefox is a free and open-source internet browser that offers numerous plugins which can be accessed with a single mouse click. Available for Android, iOS, Linux, and Windows, Mozilla is free to use, modify and redistribute. Mozilla was born about 20 years ago out of the open-source software movement, and over the years, it reshaped the technology industry and the way social networks and operating systems operate. Today, open-source is mainstream, and it powers tech giants like Google, Facebook, and even Microsoft.</p>
 
+            {/* documentation link */}
             <p>Documentation for Mozilla Firefox &nbsp;
-            <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox">click here for documentation</a></p>
+                <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Firefox">click here for documentation</a></p>
 
+            {/* tutorial link */}
             <p>Tutorial for Mozilla Firefox &nbsp;
-            <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">click here for tutorial</a></p>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">click here for tutorial</a></p>
 
+            {/*youtube video link */}
             <p>YouTube video for how to use Mozilla Firefox &nbsp;
-            <a href="https://youtu.be/xeFhzM8lepA">click here for video</a></p>
+                <a href="https://youtu.be/xeFhzM8lepA">click here for video</a></p>
 
+            {/* other video link */}
             <p>Other resources links</p>
             <a href="https://www.javatpoint.com/mozilla-firefox">javatpoint</a><br></br>
             <a href="https://support.mozilla.org/en-US/products/firefox/get-started">support mozilla</a><br></br>
             <a href="https://edu.gcfglobal.org/en/firefox/">gcfglobal</a>
 
+            
+
+            
             <h2>2. LibreOffice</h2>
             <p>LibreOffice is a free and open-source alternative to Microsoft Office. It is a complete office suite like MS Office, with which you can offer presentations, documents, spreadsheets, and databases. LibreOffice is used by millions of people all over the world. The clean interface and feature-rich tools of this open-source software allow users to use their creativity and enhance productivity.</p>
-
             <p>Documentation for LibreOffice &nbsp;
-            <a href="https://documentation.libreoffice.org/en/english-documentation/">click here for documentation</a></p>
+                <a href="https://documentation.libreoffice.org/en/english-documentation/">click here for documentation</a></p>
 
             <p>Tutorial for LibreOffice &nbsp;
-            <a href="https://www.libreofficehelp.com/libreoffice-writer-tutorial/">click here for tutorial</a></p>
+                <a href="https://www.libreofficehelp.com/libreoffice-writer-tutorial/">click here for tutorial</a></p>
 
             <p>YouTube video for LibreOffice writer &nbsp;
-            <a href="https://youtu.be/JIBWOjeiptA">click here for video</a></p>
+                <a href="https://youtu.be/JIBWOjeiptA">click here for video</a></p>
 
             <p>Other tutorials links</p>
             <a href="https://www.tutorialspoint.com/ubuntu/ubuntu_libreoffice.htm">tutorialspoint</a><br></br>
@@ -45,7 +99,7 @@ const Resources = () => {
             <p>The photo editing tool GIMP is one of the most popular and best maintained open-source software available. It offers image editing, filters, effects, and flexibility features like some of the expensive image editing tools, yet it is completely free. With GIMP, you can use layers, filters, automatic photo enhancement features, and create new graphic design elements easily. Available across different operating systems, including Windows, Mac, and Linux.</p>
 
             <p>Documentation for GIMP &nbsp;
-            <a href="https://www.gimp.org/docs/">click here for documentation</a>
+                <a href="https://www.gimp.org/docs/">click here for documentation</a>
             </p>
 
             <p>Tutorial for GIMP &nbsp;
@@ -197,6 +251,6 @@ const Resources = () => {
             <a href="https://www.geeksforgeeks.org/gnu-compiler-collection/amp/#amp_tf=From%20%251%24s&aoh=16855511415827&referrer=https%3A%2F%2Fwww.google.com">geeksforgeeks</a><br></br>
             <a href="https://www.javatpoint.com/gcc-linux">javatpoint</a>
         </header>
-    );
+    </>);
 }
 export default Resources;

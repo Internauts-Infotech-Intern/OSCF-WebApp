@@ -1,5 +1,7 @@
 .sidebar {
-  background-color:#002a42;
+  background-color: #002a42;
+  flex: 4;
+  height: 100vh;
 }
 
 .sidebar.open {
@@ -18,29 +20,28 @@
   cursor: pointer;
 }
 
-
-.nav.navItem :hover{
+.nav.navItem :hover {
   background-color: #e1cece;
 }
 
-.MyNav Link .open{
+.MyNav Link .open {
   display: inline-flex;
 }
 
-.MyNav Link .closed{
-  display:none;
+.MyNav Link .closed {
+  display: none;
 }
 
-.sidebarcollapsed{
-display: none;
+.sidebarcollapsed {
+  display: none;
 }
 
-.myTogleElement{
+.myTogleElement {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.vcenter-item{
-        display: flex;
-        align-items: center;
-    }
+.vcenter-item {
+  display: flex;
+  align-items: center;
+}

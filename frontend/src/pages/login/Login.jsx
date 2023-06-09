@@ -191,21 +191,8 @@ function Login() {
 						</div>
 
 					</form>
-<<<<<<< HEAD
-
-=======
-					<p>or</p>
-					<button onClick={googleAuth}>
-						{/* <img src="./images/google.png" alt="google icon" /> */}
-						<span>Sing in with Google</span>
-					</button>
-					<p>
-						New Here ? <Link to="/signup">Sing Up</Link>
-					</p>
->>>>>>> 3044c5979da7bd0bd53423b993622ab4d9915100
 				</div>
 			</div>
-
 		</div>
 	);
 }

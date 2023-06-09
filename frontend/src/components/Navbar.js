@@ -3,24 +3,28 @@ import "./navbar.css";
 import { Link } from "react-router-dom";
 import UserContext from "../context/createcontext";
 import authService from "../services/auth.service";
+import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
+  const { isSidebarOpen, setIsSidebarOpen } = useContext(UserContext);
+
   const logoutHandle = () => {
     authService.logout();
     setUser(null);
-    
   };
   return (
     <nav className=" MyNavbar navbar navbar-expand-lg">
-      <div className="navbar-brand ml-lg-5">
-        <Link to={"/"} className="navbar-brand p-0">
-          <h4 className="p-0">OSCF</h4>
+      {!isSidebarOpen ? (
+        <Link to={"/"} className="navbar-brand text-white ">
+          <h3 className="p-0">OSCF</h3>
         </Link>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-        <div className="form-inline ml-auto ">
-          <input
+        <div className="form-inline ml-auto  ">
+          {/* <input  
             className="form-control mr-sm-2 "
             type="search"
             placeholder="Search"
@@ -29,7 +33,30 @@ const Navbar = () => {
           />
           <button className="btn btn-primary my-2 my-sm-0 btn-sm" type="button">
             Search
-          </button>
+          </button> */}
+
+          <div className="bg-white rounded shadow">
+            <div className=" bg-light rounded rounded-pill shadow-sm ">
+              <div className="input-group">
+                <input
+                  type="search"
+                  placeholder="search"
+                  aria-describedby="button-addon1"
+                  className="form-control border-0 "
+                  size={30}
+                />
+                <div className="input-group-append">
+                  <button
+                    id="button-addon1"
+                    type="submit"
+                    className="btn btn-link text-primary"
+                  >
+                    <SearchIcon />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
           <li className="nav-item mx-2">

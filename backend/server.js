@@ -4,6 +4,7 @@ const cors = require("cors");
 const passport = require("passport");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
+const resourceRoute = require("./routes/resource");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const app = express();
@@ -54,5 +55,8 @@ app.use(
 app.use("/api/auth", authRoute);
 app.use("/auth", authRoute);
 app.use("/blogs", blogRoute);
+app.use("/resources", resourceRoute);
+
+
 const port = process.env.PORT || 8080;
 app.listen(port, () => console.log(`Listenting on port ${port}...`));

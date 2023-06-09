@@ -21,20 +21,7 @@ function Support() {
       link: "https://www.apache.org/",
       community: "https://community.apache.org/",
       github: "https://github.com/search?q=apache&type=repositories",
-    },
-    {
-      _id: 1,
-      image: cncf,
-      title: "Cloud Native Computing Foundation",
-      info: "CNCF is the open source, vendor-neutral hub of cloud native computing, hosting projects like Kubernetes and Prometheus to make cloud native universal and sustainable. Cloud native technologies empower organizations to build and run scalable applications in modern, dynamic environments such as public, private, and hybrid clouds. Containers, service meshes, microservices, immutable infrastructure, and declarative APIs exemplify this approach. The Cloud Native Computing Foundation seeks to drive adoption of this paradigm by fostering and sustaining an ecosystem of open source, vendor-neutral projects. We democratize state-of-the-art patterns to make these innovations accessible for everyone.",
-      project1: "containerd - An open and reliable container runtime",
-      project2:
-        "Argo - Kubernetes-native tools to run workflows, manage clusters, and do GitOps right.",
-      project3: "Jaeger - CNCF Jaeger, a Distributed Tracing Platform",
-      link: "https://www.cncf.io/",
-      community: "https://community.cncf.io/",
-      github: "https://github.com/cncf",
-    },
+    }
   ]);
 
   return (
@@ -43,7 +30,7 @@ function Support() {
         data.map((element) => {
           return (
             <div className="mycard" key={element._id}>
-              <div className="card-img">
+              <div className="card-img mt-5">
                 <img src={element.image} width="160px" />
               </div>
               <div className="card-info">

@@ -1,6 +1,9 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import UserContext from "../../context/createcontext";
+
+
+const MAX_FILE_SIZE = 150 * 1024;
 export default function Write() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -9,6 +12,11 @@ export default function Write() {
   const [keywords, setKeywords] = useState("");
   const [blogs, setBlogs] = useState([]);
   const handleSubmit = () => {
+
+    if (photo && photo.size > MAX_FILE_SIZE) {
+      alert("The selected image exceeds the maximum file size limit.");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("title", title);
