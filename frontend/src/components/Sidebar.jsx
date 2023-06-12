@@ -63,7 +63,7 @@ const Sidebar = () => {
             <SupportIcon />
             <span className={navItemClassName}>Support</span>
           </Link>
-          <Link className="navItem nav-item py-3 text-white" to="/blogs">
+          <Link className="navItem nav-item py-3 text-white" to={admin ? "/admin/blogs" : "/blogs"}>
             <LibraryBooksIcon />
             <span className={navItemClassName}>Blogs</span>
           </Link>

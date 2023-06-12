@@ -9,7 +9,7 @@ const ResourcesSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  documentation: {
+  documentations: {
     type: Array,
     require: false,
   },
@@ -37,7 +37,6 @@ const ResourcesSchema = new mongoose.Schema({
   photo: {
     data: Buffer,
     contentType: String,
-    // required: false,
   },
 });
 

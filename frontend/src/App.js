@@ -11,16 +11,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import UserContext from "./context/createcontext";
 import Contribution from "./contribution/Contribution";
 import authService from "./services/auth.service";
-import Resources from "./pages/home/Resources";
+
 import Blog from "./pages/blogs/Blogs";
-import Write from "./pages/blogs/Write";
-import Single from "./pages/blogs/Single";
+import SpecificBlog from "./pages/blogs/SpecificBlog";
+import Resources from "./pages/resources/Resources";
+import SpecificResource from "./pages/resources/SpecificResource";
+import Event from "./pages/event/Events";
 import Support from "./pages/support/Support";
 import Overview from "./pages/home/Overview";
-import Event from "./pages/event/Events";
 
 import AdminResources from "./admin/resources";
 import AdminResourcesEdit from "./admin/ResourcesEdit";
+import AdminBLogs from "./admin/blogs";
+import AdminBLogsEdit from "./admin/BlogsEdit";
 
 // import dotenv from "dotenv";
 // dotenv.config();
@@ -29,6 +32,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [admin, setAdmin] = useState(false);
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [searchBarInput, setSearchBarInput] = useState("");
 
   useEffect(() => {
     console.log("is user useeffect ", user);
@@ -48,14 +52,17 @@ function App() {
     setUser(localUser);
   }, []);
 
-  useEffect(() => {
-    const localUser = authService.getCurrentUser();
-    setUser(localUser);
-  }, []);
-
   return (
     <UserContext.Provider
-      value={{ user, setUser, admin, isSidebarOpen, setIsSidebarOpen }}
+      value={{
+        user,
+        setUser,
+        admin,
+        isSidebarOpen,
+        setIsSidebarOpen,
+        searchBarInput,
+        setSearchBarInput,
+      }}
     >
       <Sidebar />
       <div className="content">
@@ -63,29 +70,30 @@ function App() {
         <div className="main-area">
           <Routes>
             <Route path="/admin/resources" element={<AdminResources />} />
-            <Route path="/admin/resources/:id" element={<AdminResourcesEdit />} />
+            <Route
+              path="/admin/resource/:id"
+              element={<AdminResourcesEdit />}
+            />
 
-            <Route path="/" element={<Overview />} />
+            <Route path="/admin/blogs" element={<AdminBLogs />} />
+            <Route path="/admin/blogs/:blogId" element={<AdminBLogsEdit />} />
 
             <Route path="/" element={<Overview />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
             <Route path="/profile" element={user ? <Profile /> : <Login />} />
-            <Route path="/userforum" element={user ? <></> : <Login />} />
+
             <Route path="/contribution" element={<Contribution />} />
-            <Route path="/resorces" element={<Resources />} />
-            <Route path="/blogs" element={<Blog />} />
             <Route path="/support" element={<Support />} />
-            <Route path="/write" element={admin ? <Write /> : <></>} />
-            <Route path="/blog/:blogId" element={<Single />} />
 
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/blogs" element={<Blog />} />
+            <Route path="/blog/:blogId" element={<SpecificBlog />} />
+            <Route path="/resorces" element={<Resources />} />
+            <Route path="/resource/:resourceId" element={<SpecificResource />} />
+
             <Route path="/events" element={<Event />} />
-            
-            
+
             <Route path="/userforum" element={<Event />} />
-
-
           </Routes>
         </div>
       </div>

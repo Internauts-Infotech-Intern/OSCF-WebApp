@@ -7,7 +7,7 @@ import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
   const { user, setUser } = useContext(UserContext);
-  const { isSidebarOpen, setIsSidebarOpen } = useContext(UserContext);
+  const { isSidebarOpen, setIsSidebarOpen, searchBarInput, setSearchBarInput } = useContext(UserContext);
 
   const logoutHandle = () => {
     authService.logout();
@@ -24,17 +24,6 @@ const Navbar = () => {
       )}
       <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
         <div className="form-inline ml-auto  ">
-          {/* <input  
-            className="form-control mr-sm-2 "
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            size={30}
-          />
-          <button className="btn btn-primary my-2 my-sm-0 btn-sm" type="button">
-            Search
-          </button> */}
-
           <div className="bg-white rounded shadow">
             <div className=" bg-light rounded rounded-pill shadow-sm ">
               <div className="input-group">
@@ -44,6 +33,8 @@ const Navbar = () => {
                   aria-describedby="button-addon1"
                   className="form-control border-0 "
                   size={30}
+                  value={searchBarInput}
+                  onChange={(e) => { setSearchBarInput(e.target.value); }}
                 />
                 <div className="input-group-append">
                   <button
