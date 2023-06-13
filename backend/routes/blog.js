@@ -67,32 +67,6 @@ router.post("/update", upload.single("photo"), async (req, res) => {
         contentType: file.mimetype,
       };
     }
-
-    // const { _id, title, description, keywords, photoChanged, photo } =
-    //   req.body.requestData;
-    // var updateObj = {
-    //   title,
-    //   description,
-    //   keywords,
-    // };
-    // if (photoChanged) {
-    //   console.log("enter in photo changed");
-    //   const photoBuffer = Buffer.from(photo, "base64");
-    //   let contentType;
-    //   if (photoBuffer.includes(Buffer.from("png", "utf-8"))) {
-    //     contentType = "image/png";
-    //   } else if (
-    //     photoBuffer.includes(Buffer.from("jpg", "utf-8")) ||
-    //     photoBuffer.includes(Buffer.from("jpeg", "utf-8"))
-    //   ) {
-    //     contentType = "image/jpeg";
-    //   } else {
-    //     console.log("image type falied");
-    //     contentType = "image/png";
-    //   }
-    //   updateObj.photo = { data: photoBuffer, contentType };
-    // }
-
     const updateBlog = await Blog.updateOne(
       { _id: _id },
       {
@@ -100,6 +74,7 @@ router.post("/update", upload.single("photo"), async (req, res) => {
       },
       { upsert: true }
     );
+
     console.log("updateBlog : ", updateBlog);
     res.send({ status: 1, updateBlog });
   } catch (err) {
