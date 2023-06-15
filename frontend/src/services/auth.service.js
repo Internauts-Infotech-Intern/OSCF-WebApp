@@ -1,5 +1,5 @@
 // const API_URL = "http://3.109.184.63:10001/api/auth/";
-const API_URL = "http://localhost:8080/api/auth/";
+const API_URL = process.env.REACT_APP_API_URL+"/api/auth/";
 
 class AuthService {
   loginService(credential) {

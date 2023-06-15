@@ -6,8 +6,7 @@ import authService from "../services/auth.service";
 import SearchIcon from "@mui/icons-material/Search";
 
 const Navbar = () => {
-  const { user, setUser } = useContext(UserContext);
-  const { isSidebarOpen, setIsSidebarOpen, searchBarInput, setSearchBarInput } = useContext(UserContext);
+  const { user, setUser, admin, isSidebarOpen, setIsSidebarOpen, searchBarInput, setSearchBarInput } = useContext(UserContext);
 
   const logoutHandle = () => {
     authService.logout();
@@ -50,16 +49,17 @@ const Navbar = () => {
           </div>
         </div>
         <ul className="navbar-nav ml-auto mt-2 mt-lg-0">
+          {!admin?
           <li className="nav-item mx-2">
-            <Link to={"#"} className="nav-link">
+            <Link to={"/contactus"} className="nav-link">
               Contact Us
             </Link>
-          </li>
+            </li> : <></>}
 
-          <li className="nav-item mx-2">
+          <li className="nav-item ml-2">
             {user ? (
               <div className="navbar-nav ml-auto">
-                <div className="nav-item">
+                <div className="nav-item mr-4">
                   <Link to={"/profile"} className="nav-link">
                     {user.username}
                   </Link>

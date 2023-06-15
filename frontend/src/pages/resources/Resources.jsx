@@ -1,16 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import UserContext from "../../context/createcontext";
 
 
 const Resources = () => {
 
     const [resources, setResources] = useState([]);
+    const [filteredResources, setFilteredResources] = useState([]);
     const [rating, setRating] = useState("");
+    const { searchBarInput } = useContext(UserContext);
+
+    function filterBlogs() {
+        console.log("/resources || enter in filterblogs");
+        if (searchBarInput) {
+            const filtered = resources.filter((blog) =>
+                blog.keywords.some((keyword) =>
+                    keyword.toLowerCase().includes(searchBarInput.toLowerCase())
+                )
+            );
+            setFilteredResources(filtered);
+        } else {
+            setFilteredResources(resources);
+        }
+    }
+    useEffect(() => {
+        filterBlogs();
+    }, [searchBarInput, resources]);
 
     const fetchResource = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/resources/resources");
+            const res = await axios.get(process.env.REACT_APP_API_URL+"/resources/resources");
             console.log(res.data);
             setResources(res.data);
         } catch (error) {
@@ -22,9 +42,9 @@ const Resources = () => {
         fetchResource();
     }, []);
 
+    
 
-
-    let list = resources.map((obj) => {
+    let list = filteredResources.map((obj) => {
         return <div className="col" key={obj._id} >
             <div className="card  text-center mb-5 ">
                 <img src={obj.photo} className="bd-placeholder-img card_img_margin mt-3 " width="200" height="200" />

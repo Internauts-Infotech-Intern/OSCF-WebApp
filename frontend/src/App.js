@@ -1,6 +1,6 @@
 import Login from "./pages/login/Login";
 import Signup from "./pages/login/Signup";
-import Home from "./pages/home/Home";
+
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
@@ -9,7 +9,7 @@ import Profile from "./pages/login/Profile";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserContext from "./context/createcontext";
-import Contribution from "./contribution/Contribution";
+import Contribution from "./pages/contribution/Contribution";
 import authService from "./services/auth.service";
 
 import Blog from "./pages/blogs/Blogs";
@@ -19,11 +19,13 @@ import SpecificResource from "./pages/resources/SpecificResource";
 import Event from "./pages/event/Events";
 import Support from "./pages/support/Support";
 import Overview from "./pages/home/Overview";
+import ContactUs from "./pages/home/ContactUs";
 
 import AdminResources from "./admin/resources";
 import AdminResourcesEdit from "./admin/ResourcesEdit";
 import AdminBLogs from "./admin/blogs";
 import AdminBLogsEdit from "./admin/BlogsEdit";
+import ContacctUS from "./admin/contactUs";
 
 // import dotenv from "dotenv";
 // dotenv.config();
@@ -50,6 +52,7 @@ function App() {
   useEffect(() => {
     const localUser = authService.getCurrentUser();
     setUser(localUser);
+    // console.log(".env : ", process.env.REACT_APP_API_URL);
   }, []);
 
   return (
@@ -85,13 +88,24 @@ function App() {
 
             <Route path="/contribution" element={<Contribution />} />
             <Route path="/support" element={<Support />} />
+            <Route
+              path="/contactus"
+              element={user ? <ContactUs /> : <Login/>}
+            />
 
             <Route path="/blogs" element={<Blog />} />
             <Route path="/blog/:blogId" element={<SpecificBlog />} />
             <Route path="/resorces" element={<Resources />} />
-            <Route path="/resource/:resourceId" element={<SpecificResource />} />
+            <Route
+              path="/resource/:resourceId"
+              element={<SpecificResource />}
+            />
 
             <Route path="/events" element={<Event />} />
+            <Route
+              path="/admin/usermasseges"
+              element={admin ? <ContacctUS /> : <Login />}
+            />
 
             <Route path="/userforum" element={<Event />} />
           </Routes>

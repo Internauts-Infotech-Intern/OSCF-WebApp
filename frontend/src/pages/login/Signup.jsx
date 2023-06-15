@@ -127,99 +127,102 @@ function Signup() {
 	return (
 		<div>
 			<div className="container MyLoginStyle">
-				<div className='FormTag shadow mt-5'>
-					<div className="card card-container pt-5 pr-5 pl-5 ">
-						<form >
-							<div className="form-group">
-								<label htmlFor="username">username</label>
-								<input
-									type="text"
-									className="form-control"
-									name="username"
-									value={username}
-									onChange={(e) => { setUsername(e.target.value); }}
-								/>
-							</div>
-							<div className="form-group">
-								<label htmlFor="email">Email</label>
-								<input
-									type="text"
-									className="form-control"
-									name="email"
-									value={email}
-									onChange={(e) => { setEmail(e.target.value); }}
-								/>
-							</div>
-							<div className="form-group">
-								<label htmlFor="number">Number</label>
-								<input
-									type="tel"
-									className="form-control"
-									name="number"
-									value={phone}
-									onChange={(e) => { setPhone(e.target.value); }}
-								/>
-							</div>
+				<div className='FormTag shadow ml-auto mr-auto'>
+					<div className="card card-container p-5 ">
 
-							<div className="form-group">
-								<label htmlFor="password">Password</label>
-								<input
-									type="password"
-									className="form-control"
-									name="password"
-									value={password}
-									onChange={(e) => { setPassword(e.target.value); }}
-								/>
-							</div>
-							<div className="form-group">
-								<label htmlFor="cpassword">Password</label>
-								<input
-									type="password"
-									className="form-control"
-									name="cpassword"
-									value={cpassword}
-									onChange={(e) => { setCpassword(e.target.value); }}
-								/>
-							</div>
+						<div className="form-group text-lg-center text-success">
+							SignUp Into OSCF
+						</div>
+						<div className="form-group">
+							<label htmlFor="username">username</label>
+							<input
+								type="text"
+								className="form-control"
+								name="username"
+								value={username}
+								onChange={(e) => { setUsername(e.target.value); }}
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="email">Email</label>
+							<input
+								type="text"
+								className="form-control"
+								name="email"
+								value={email}
+								onChange={(e) => { setEmail(e.target.value); }}
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="number">Number</label>
+							<input
+								type="tel"
+								className="form-control"
+								name="number"
+								value={phone}
+								onChange={(e) => { setPhone(e.target.value); }}
+							/>
+						</div>
 
-							<div className="form-group ">
-								<button
-									type='button'
-									className="btn btn-primary  btn-block"
-									disabled={loading}
-									onClick={() => {
-										handleSignIn();
-									}}
-								>
-									Sign In
-								</button>
-							</div>
+						<div className="form-group">
+							<label htmlFor="password">Password</label>
+							<input
+								type="password"
+								className="form-control"
+								name="password"
+								value={password}
+								onChange={(e) => { setPassword(e.target.value); }}
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="cpassword">Password</label>
+							<input
+								type="password"
+								className="form-control"
+								name="cpassword"
+								value={cpassword}
+								onChange={(e) => { setCpassword(e.target.value); }}
+							/>
+						</div>
 
-							{massege && (
-								<div className="form-group">
-									<div className="alert alert-danger" role="alert">
-										{massege}
-									</div>
+						<div className="form-group ">
+							<button
+								type='button'
+								className="btn btn-primary  btn-block"
+								disabled={loading}
+								onClick={() => {
+									handleSignIn();
+								}}
+							>
+								Sign Up
+							</button>
+						</div>
+
+						{massege && (
+							<div className="form-group">
+								<div className="alert alert-danger" role="alert">
+									{massege}
 								</div>
-							)}
-							<div className='form-group text-center' htmlFor="loginWithGoogle">Or</div>
-							<div className='form-group text-center ml-auto' name="loginWithGoogle">
-
-								<GoogleLogin
-									className="ml-auto text-center"
-									onSuccess={responseMessage}
-									onError={errorMessage}
-									responseType="code"
-									scope="openid profile email"
-									buttonText="Sign in with Google"
-									cookiePolicy={"single_host_origin"}
-									uxMode={"popup"} />
 							</div>
-							<div className="form-group text-center mt-4">
-								Already Have Account ? <Link to="/login">Log In</Link>
-							</div>
+						)}
+						<div className='form-group text-center' htmlFor="loginWithGoogle">Or</div>
+						<div className='form-group text-center ml-auto mr-auto' name="loginWithGoogle">
 
-						</form>
+							<GoogleLogin
+								className="ml-auto mr-auto text-center"
+								onSuccess={responseMessage}
+								onError={errorMessage}
+								responseType="code"
+								scope="openid profile email"
+								buttonText="Sign in with Google"
+								cookiePolicy={"single_host_origin"}
+								uxMode={"popup"} />
+						</div>
+						<div className="form-group text-center mt-4">
+							Already Have Account ? <Link to="/login">Log In</Link>
+						</div>
+
+
 					</div>
 				</div>
 

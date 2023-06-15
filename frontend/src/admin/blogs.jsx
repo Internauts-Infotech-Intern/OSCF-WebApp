@@ -34,7 +34,7 @@ export default function Blog() {
     }
     const fetchBlogs = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/blogs/blogs");
+            const res = await axios.get(process.env.REACT_APP_API_URL +"/blogs/blogs");
             console.log(res.data);
             setBlogs(res.data);
         } catch (error) {
@@ -44,7 +44,7 @@ export default function Blog() {
 
     function handleDelete(_id) {
         try {
-            axios.post(`http://localhost:8080/blogs/delete`, {
+            axios.post(process.env.REACT_APP_API_URL +`/blogs/delete`, {
                 _id,
             }).then((res) => {
                 if (res.data.status == 1) {

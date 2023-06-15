@@ -14,6 +14,8 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import AccountTreeIcon from "@mui/icons-material/AccountTree";
 import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
 import SourceIcon from "@mui/icons-material/Source";
+import EmailIcon from '@mui/icons-material/Email';
+
 import UserContext from "../context/createcontext";
 
 const Sidebar = () => {
@@ -32,8 +34,8 @@ const Sidebar = () => {
 
   return (
     <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
-      <div className="m-0 d-flex flex-column flex-shrink-0 p-3 text-bg-dark ">
-        <ul className="nav MyNav nav-pills flex-column mb-auto mt-4">
+      <div className="m-0 d-flex flex-column flex-shrink-0 px-3 text-bg-dark ">
+        <ul className="nav MyNav nav-pills flex-column mb-auto ">
           <Link
             className="navItem nav-item py-3 text-white vcenter-item"
             onClick={toggleSidebar}
@@ -75,13 +77,24 @@ const Sidebar = () => {
             <EventAvailableIcon />
             <span className={navItemClassName}>Events</span>
           </Link>
+
+
+
+          {admin ? <Link
+            className="navItem nav-item py-3 text-white"
+            to="/admin/usermasseges"
+          >
+            <EmailIcon />
+            <span className={navItemClassName}>user masseges</span>
+          </Link>:<>
           <Link
             className="navItem nav-item py-3 text-white"
             to="https://buy.stripe.com/test_4gwcP43kh9Qdgnu8ww"
           >
             <CurrencyRupeeIcon />
             <span className={navItemClassName}>Donate Us</span>
-          </Link>
+            </Link></>
+          }
         </ul>
         <hr />
       </div>

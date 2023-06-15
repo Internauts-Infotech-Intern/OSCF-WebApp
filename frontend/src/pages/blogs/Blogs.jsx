@@ -12,19 +12,12 @@ export default function Blog() {
     const { searchBarInput, setSearchBarInput } = useContext(UserContext);
 
     function filterBlogs() {
-        // console.log("filterBlogs start, keywords : ", searchBarInput);
         if (searchBarInput) {
-            // const filtered = blogs.filter((blog) =>
-            //     blog.keywords.includes(searchBarInput)
-            // );
-
             const filtered = blogs.filter((blog) =>
                 blog.keywords.some((keyword) =>
                     keyword.toLowerCase().includes(searchBarInput.toLowerCase())
                 )
             );
-
-
             setFilteredBlogs(filtered);
         } else {
             setFilteredBlogs(blogs);
@@ -32,7 +25,7 @@ export default function Blog() {
     }
     const fetchBlogs = async () => {
         try {
-            const res = await axios.get("http://localhost:8080/blogs/blogs");
+            const res = await axios.get(process.env.REACT_APP_API_URL+"/blogs/blogs");
             console.log(res.data);
             setBlogs(res.data);
         } catch (error) {
@@ -75,7 +68,7 @@ export default function Blog() {
             <div className="row row-cols-1  row-cols-md-3 m-2 mt-4">
                 {list}
             </div>
-            {list.length == 0 ? <div className="container text-center h2">there is no blogs data</div>:<></>}
-            </div>
+            {list.length == 0 ? <div className="container text-center h2">there is no blogs data</div> : <></>}
+        </div>
     );
 }

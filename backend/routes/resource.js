@@ -57,6 +57,7 @@ router.post("/resource", async (req, res) => {
       };base64,${blogs.photo.data.toString("base64")}`,
     };
     res.send({ status: 1, modifiedResources });
+    console.log("status 1");
   } catch (err) {
     console.log(err);
     res.send({ status: 0 });
@@ -71,7 +72,7 @@ router.post("/cresource", upload.single("photo"), async (req, res) => {
       description,
       keywords,
       documentations,
-      tutotials,
+      tutorials,
       videos,
       otherResources,
     } = req.body;
@@ -80,7 +81,7 @@ router.post("/cresource", upload.single("photo"), async (req, res) => {
 
     const ka = keywords.split(",");
     const da = documentations.split(",");
-    const ta = tutotials.split(",");
+    const ta = tutorials.split(",");
     const va = videos.split(",");
     const oa = otherResources.split(",");
 
@@ -116,15 +117,34 @@ router.post("/cresource", upload.single("photo"), async (req, res) => {
 //Update Post
 router.post("/update", upload.single("photo"), async (req, res) => {
   try {
-    const { _id, title, description, keywords, photoChanged } = req.body;
+    const {
+      _id,
+      title,
+      description,
+      keywords,
+      photoChanged,
+      documentations,
+      tutorials,
+      videos,
+      otherResources,
+    } = req.body;
     const file = req.file;
     console.log("/update id :", req.body);
-    const words = keywords.split(",");
-    console.log("keywords splited : ", words);
+
+    const ka = keywords.split(",");
+    const da = documentations.split(",");
+    const ta = tutorials.split(",");
+    const va = videos.split(",");
+    const oa = otherResources.split(",");
+
     var updateObj = {
       title: title,
       description: description,
-      keywords: words,
+      documentations: da,
+      tutorials: ta,
+      videos: va,
+      otherResources: oa,
+      keywords: ka,
     };
     if (photoChanged == "true") {
       updateObj["photo"] = {

@@ -13,7 +13,7 @@ export default function Write(){
         formData.append('title',title);
         formData.append('description',description);
         formData.append('photo',photo);
-        axios.post('http://localhost:8080/blogs/cblog',formData,{
+      axios.post(process.env.REACT_APP_API_URL +'/blogs/cblog',formData,{
           headers:{
             'Content-Type':'multipart/form-data',
 

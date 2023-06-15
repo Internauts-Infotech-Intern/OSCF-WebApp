@@ -5,6 +5,7 @@ const passport = require("passport");
 const authRoute = require("./routes/auth");
 const blogRoute = require("./routes/blog");
 const resourceRoute = require("./routes/resource");
+const contactUsRoute = require("./routes/contactUs");
 const cookieSession = require("cookie-session");
 const passportStrategy = require("./passport");
 const app = express();
@@ -56,6 +57,7 @@ app.use("/api/auth", authRoute);
 app.use("/auth", authRoute);
 app.use("/blogs", blogRoute);
 app.use("/resources", resourceRoute);
+app.use("/contactus", contactUsRoute);
 
 
 const port = process.env.PORT || 8080;

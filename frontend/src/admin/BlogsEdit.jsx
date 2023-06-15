@@ -30,7 +30,7 @@ export default function BlogsEdit() {
     }, [])
     useEffect(() => {
         if (_id != null && _id != "new") {
-            axios.post("http://localhost:8080/blogs/blog", { _id }).then((res) => {
+            axios.post(process.env.REACT_APP_API_URL +"/blogs/blog", { _id }).then((res) => {
                 console.log("responce is : ", res);
                 if (res.data.status == 1) {
                     const blog = res.data.modifiedBlogs;
@@ -63,7 +63,7 @@ export default function BlogsEdit() {
         formData.append("description", description);
         formData.append("photo", photo);
         formData.append("keywords", keywords);
-        axios.post("http://localhost:8080/blogs/cblog", formData, {
+        axios.post(process.env.REACT_APP_API_URL +"/blogs/cblog", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
@@ -126,7 +126,7 @@ export default function BlogsEdit() {
         } else {
             formData.append("photoChanged", false);
         }
-        axios.post("http://localhost:8080/blogs/update", formData, {
+        axios.post(process.env.REACT_APP_API_URL +"/blogs/update", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },

@@ -1,6 +1,5 @@
 import React, { Component, useContext, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useState } from "react";
 import { useRef } from "react";
 import UserContext from '../../context/createcontext';
@@ -8,6 +7,9 @@ import AuthService from '../../services/auth.service';
 //google apis
 import { GoogleLogin } from "@react-oauth/google";
 import jwt_decode from "jwt-decode";
+
+
+import "./login.css";
 
 function Login() {
 
@@ -89,7 +91,7 @@ function Login() {
 				password: password
 			}
 		}
-		console.log("login.js data sent is : ",data)
+		console.log("login.js data sent is : ", data)
 		AuthService.loginService(data)
 			.then((userDetails) => {
 				console.log(
@@ -103,7 +105,7 @@ function Login() {
 			})
 			.catch((error) => {
 				var resMessage;
-				console.log("in erro login component after login localstorage is ",error);
+				console.log("in erro login component after login localstorage is ", error);
 				if (error.status == 0) {
 					resMessage =
 						"this email is not register with OSCF, kindly SignUp first";
@@ -126,71 +128,69 @@ function Login() {
 	};
 	return (
 		<div className="container MyLoginStyle">
-			<div className='FormTag shadow mt-5'>
+			<div className='FormTag shadow  ml-auto mr-auto'>
 				<div className="card card-container p-5">
-					<form >
-						<div className="form-group text-lg-center text-success">
-							Login Into OSCF
-						</div>
-						<div className="form-group">
-							<label htmlFor="email">Email</label>
-							<input
-								type="text"
-								className="form-control"
-								name="email"
-								value={email}
-								onChange={(e) => { setEmail(e.target.value) }}
-							/>
-						</div>
+					<div className="form-group text-lg-center text-success">
+						Login Into OSCF
+					</div>
+					<div className="form-group">
+						<label htmlFor="email">Email</label>
+						<input
+							type="text"
+							className="form-control"
+							name="email"
+							value={email}
+							onChange={(e) => { setEmail(e.target.value) }}
+						/>
+					</div>
 
-						<div className="form-group">
-							<label htmlFor="password">Password</label>
-							<input
-								type="password"
-								className="form-control"
-								name="password"
-								value={password}
-								onChange={(e) => { setPassword(e.target.value) }}
-							/>
-						</div>
+					<div className="form-group">
+						<label htmlFor="password">Password</label>
+						<input
+							type="password"
+							className="form-control"
+							name="password"
+							value={password}
+							onChange={(e) => { setPassword(e.target.value) }}
+						/>
+					</div>
 
-						<div className="form-group">
-							<button
-								type='button'
-								className="btn btn-primary btn-block"
-								disabled={loading}
-								onClick={() => {
-									handleLogin();
-								}}
-							>
-								Login
-							</button>
-						</div>
+					<div className="form-group">
+						<button
+							type='button'
+							className="btn btn-primary btn-block"
+							disabled={loading}
+							onClick={() => {
+								handleLogin();
+							}}
+						>
+							Login
+						</button>
+					</div>
 
-						{massege && (
-							<div className="form-group">
-								<div className="alert alert-danger" role="alert">
-									{massege}
-								</div>
+					{massege && (
+						<div className="form-group">
+							<div className="alert alert-danger" role="alert">
+								{massege}
 							</div>
-						)}
-						<div className='form-group text-center' htmlFor="loginWithGoogle">Or</div>
-						<div className='form-group text-center' name="loginWithGoogle">
-							<GoogleLogin
-								onSuccess={responseMessage}
-								onError={errorMessage}
-								responseType="code"
-								scope="openid profile email"
-								buttonText="Sign in with Google"
-								cookiePolicy={"single_host_origin"}
-								uxMode={"popup"}
-							/>
 						</div>
-						<div className="form-group text-center  mt-5">
-							if you not register? <Link to="/signup">Sing Up</Link>
-						</div>
+					)}
+					<div className='form-group text-center' htmlFor="loginWithGoogle">Or</div>
+					<div className='form-group text-center mr-auto ml-auto' name="loginWithGoogle">
+						<GoogleLogin
+							onSuccess={responseMessage}
+							onError={errorMessage}
+							responseType="code"
+							scope="openid profile email"
+							buttonText="Sign in with Google"
+							cookiePolicy={"single_host_origin"}
+							uxMode={"popup"}
+						/>
+					</div>
+					<div className="form-group text-center  mt-5">
+						if you not register? <Link to="/signup">Sing Up</Link>
+					</div>
 
-					</form>
 				</div>
 			</div>
 		</div>

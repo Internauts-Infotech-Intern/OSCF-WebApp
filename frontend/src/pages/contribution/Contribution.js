@@ -1,6 +1,6 @@
 import React from "react";
-import img1 from "../images/img1.avif";
-import img2 from "../images/img2.avif";
+import img1 from "../../images/img1.avif";
+import img2 from "../../images/img2.avif";
 import "./Contribution.css";
 
 function Contribution() {

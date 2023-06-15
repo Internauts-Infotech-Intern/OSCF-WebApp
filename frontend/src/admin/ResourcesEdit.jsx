@@ -38,7 +38,7 @@ const Resources = () => {
     }, [])
     useEffect(() => {
         if (_id  && _id != "new") {
-            axios.post("http://localhost:8080/resources/resource", { _id }).then((res) => {
+            axios.post(process.env.REACT_APP_API_URL+"/resources/resource", { _id }).then((res) => {
                 console.log("responce is : ", res);
                 if (res.data.status == 1) {
                     const blog = res.data.modifiedResources;
@@ -77,10 +77,10 @@ const Resources = () => {
         formData.append("photo", photo);
         formData.append("keywords", keywords);
         formData.append("documentations", documents);
-        formData.append("tutotials", tutorials);
+        formData.append("tutorials", tutorials);
         formData.append("videos", videos);
         formData.append("otherResources", otherResources);
-        axios.post("http://localhost:8080/resources/cresource", formData, {
+        axios.post(process.env.REACT_APP_API_URL+"/resources/cresource", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },
@@ -134,13 +134,17 @@ const Resources = () => {
         formData.append("title", title);
         formData.append("description", description);
         formData.append("keywords", keywords);
+        formData.append("documentations", documents);
+        formData.append("tutorials", tutorials);
+        formData.append("videos", videos);
+        formData.append("otherResources", otherResources);
         if (imageChanged) {
             formData.append("photoChanged", true);
             formData.append("photo", photo);
         } else {
             formData.append("photoChanged", false);
         }
-        axios.post("http://localhost:8080/resources/update", formData, {
+        axios.post(process.env.REACT_APP_API_URL+"/resources/update", formData, {
             headers: {
                 "Content-Type": "multipart/form-data",
             },

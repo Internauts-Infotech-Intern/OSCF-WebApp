@@ -34,11 +34,10 @@ export default function SpecificBlog() {
     const [updateMode, setUpdateMode] = useState(false);
     const [blog, setBLog] = useState({});
 
-
     useEffect(() => {
         const getPost = async () => {
             const _id = path;
-            const res = await axios.post("http://localhost:8080/blogs/blog", { _id });
+            const res = await axios.post(process.env.REACT_APP_API_URL+"/blogs/blog", { _id });
             console.log(res.data.modifiedBlogs);
             const blog = res.data.modifiedBlogs;
             setBLog(blog);
@@ -50,7 +49,7 @@ export default function SpecificBlog() {
         getPost();
     }, [path]);
     const handleLike = () => {
-        axios.put(`http://localhost:8080/blogs/like/${blog._id}`)
+        axios.put(process.env.REACT_APP_API_URL+`/blogs/like/${blog._id}`)
             .then(response => {
 
                 // Update the rating on the frontend
