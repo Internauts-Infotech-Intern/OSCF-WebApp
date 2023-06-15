@@ -38,7 +38,7 @@ const Resources = () => {
 
 
     const fetchResource = () => {
-        axios.get(process.env.REACT_APP_API_URL+"/resources/resources", {}).then((res) => {
+        axios.get(process.env.REACT_APP_API_URL + "/resources/resources", {}).then((res) => {
             console.log(res.data);
             setResources(res.data);
         }).catch((err) => {
@@ -56,7 +56,7 @@ const Resources = () => {
         console.log("per : ", permition);
         if (permition) {
             try {
-                axios.post(process.env.REACT_APP_API_URL+`/resources/delete`, {
+                axios.post(process.env.REACT_APP_API_URL + `/resources/delete`, {
                     _id,
                 }).then((res) => {
                     if (res.data.status == 1) {
@@ -93,8 +93,11 @@ const Resources = () => {
     let list = filteredResources.map((obj) => {
 
 
-        return <div className="col res-col my-2" key={obj._id} >
+        return <div className="col res-col my-  2" key={obj._id} >
             <article className="card">
+                <div className="card__title p-2">
+                    {obj.title}
+                </div>
                 <img
                     className="card__background"
                     src={obj.photo}
@@ -104,11 +107,14 @@ const Resources = () => {
                 />
                 <div className="card__content | flow">
                     <div className="card__content--container | flow">
-                        <h2 className="card__title">{obj.title}</h2>
+                        <h2 className="card__title py-0 my-0">{obj.title}</h2>
                         <p className="card__description">
-                            {/* {obj.description} */}hi i am aarju
+                            {obj.description}
                         </p>
-                        <button className="btn btn-success card__button ">Read more</button>
+                        <a>
+                            <div className="text-danger p-2">{obj.rating} Likes</div>
+                            <button className="btn btn-success card__button ">Read...</button>
+                        </a>
 
                     </div>
                 </div>
